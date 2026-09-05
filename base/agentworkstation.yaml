@@ -257,3 +257,10 @@ spec:
         headers:
           Authorization: "Bearer ${NEWSROOM_TOKEN}"
         envFromSecret: upstreambeat-newsroom-secrets
+  schedules:
+    # Declared shift (operator >= v1.7.74 renders it into the gateway's cron table;
+    # replaces deploy/agents/40-cron-setup.sh, which stays as the manual fallback).
+    - name: ub-scout-daily
+      cron: "10 13 * * *"
+      message: |
+        Shift trigger (daily): run your directory pass per your system prompt. Start with newsroom_snapshot.
