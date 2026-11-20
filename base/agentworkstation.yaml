@@ -204,9 +204,11 @@ spec:
     # `openai-codex` as a legacy provider id), and the gateway's
     # spec.modelAuth pins auth.order to the OAuth profile.
     #
-    # gpt-5.6-sol is subscription-only — the metered api.openai.com
-    # endpoint does not serve it.
-    modelName: gpt-5.6-sol
+    # gpt-6.2-sol (since 19 Nov 2026; gpt-5.6-sol before) is
+    # subscription-only — the metered api.openai.com endpoint does not serve
+    # it. The gateway lists it in spec.modelAuth.models
+    # (upstreambeat-anchor-agent-gitops, base/agentgateway.yaml).
+    modelName: gpt-6.2-sol
 
   # Runtime — every agent is a logical openclaw persona on an
   # AgentGateway. There is no "dedicated" runtime in the operator: the
